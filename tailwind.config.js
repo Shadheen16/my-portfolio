@@ -9,10 +9,10 @@ module.exports = {
         "mont" : ['Montserrat', 'sans-serif'],
       },
       colors: {
-        'clr-primary': '#181B23',
-        'clr-secondary': '#EA4444',
-        'clr-accent': '#FFDE3E',
-        'clr-nav': '#22232B',
+        'clr-primary': '#E6F4F1',
+        'clr-secondary': '#AADCEC',
+        'clr-accent': '#9284B3',
+        'clr-dark': "#334A52"
       }
     },
   },
