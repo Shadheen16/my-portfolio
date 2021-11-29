@@ -1,14 +1,14 @@
 import { Link, NavLink } from 'react-router-dom';
 import { Disclosure} from '@headlessui/react'
 import Logo from '../../../Shared/Logo/Logo'
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment } from 'react';
 import { saveAs } from "file-saver";
 import { DownloadIcon } from '@heroicons/react/solid';
 const navigation = [
   { name: 'HOME', link: '/', current: false },
   { name: 'ABOUT', link: '/about', current: false },
   { name: 'PROJECTS', link: '/projects', current: false },
-  { name: 'CONTACT ME', link: '/contact-me', current: false },
+  { name: 'CONTACT ME', link: '/contact', current: false },
 ];
 
 ///download resume
@@ -21,32 +21,15 @@ const saveFile = () => {
   };
 
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 export default function Navbar() {
 
-  const [whiteNav, setWhiteNav] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 600) {
-        setWhiteNav(true);
-      } else {
-        setWhiteNav(false);
-      }
-    })
-    // return () => {
-    //   window.removeEventListener("scroll")
-    // }
-  }
-    , [])
   return (
-    <Disclosure as="nav" className="font-robo sm:mt-0 fixed top-0 w-full  z-50 border-b border-clr-primary  mr-auto rounded-sm text-clr-dark tracking-wider antialiased-subpixel  md:px-10  transform transition-all duration-500 ease-in sm:w-[100%] sm:left-[0%]">
+    <Disclosure as="nav" className="font-robo  fixed top-0 sm:w-[90%] lg:w-[80%] xl:w-[70%]  z-50 border-b border-clr-primary  rounded-sm text-gray-800
+    bg-clr-secondary sm:bg-transparent tracking-wider antialiased-subpixel transform transition-all duration-500 ease-in md:py-3">
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+          <div className="max-w-7xl w-full">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -63,12 +46,11 @@ export default function Navbar() {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="mx-auto sm:mx-0 sm:mr-auto">
+              <div className="mx-auto sm:ml-0">
                 <Logo />
               </div>
-              <div className="flex">
-                <div className="hidden sm:inline-flex sm:items-center ">
-                  <div className="flex space-x-4 md:space-x-10 lg:space-x-20 ">
+                <div className="hidden sm:inline-flex justify-items-end items-center">
+                  <div className="flex space-x-4 md:space-x-8 lg:space-x-12 absolute right-[20%]">
                     {navigation.map((item) => (
                       <NavLink
                         key={item.name}
@@ -81,12 +63,8 @@ export default function Navbar() {
                       </NavLink>
                     ))}
                   </div>
-                  <button className="my-auto flex items-center ml-20 border-2 border-clr-accent bg-clr-primary py-2 px-3 hover:bg-clr-accent hover:text-clr-primary" onClick={saveFile}><span><DownloadIcon className="w-6 h-6 animate-bouncer"/></span><small>download resume</small></button>
+                  <button className="my-auto flex items-center absolute right-0  border-2 border-clr-accent bg-clr-primary py-2 px-3 hover:bg-clr-accent hover:text-clr-primary" onClick={saveFile}><span><DownloadIcon className="w-6 h-6 animate-"/></span ><small className="hidden md:inline-block">download resume</small></button>
                 </div>
-              </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-
-              </div>
             </div>
           </div>
           <Disclosure.Panel className="sm:hidden">
@@ -95,7 +73,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   to={item.link}
-                  className="text-clr-dark hover:translate-x-2 transition-all duration-300 ease-out hover:text-gray-700 block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-gray-800 hover:translate-x-2 transition-all duration-300 ease-out hover:text-gray-700 block px-3 py-2 rounded-md text-base font-medium"
                 >
                   {item.name}
                 </Link>
