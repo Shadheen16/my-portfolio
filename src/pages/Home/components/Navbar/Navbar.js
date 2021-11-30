@@ -8,7 +8,7 @@ const navigation = [
   { name: 'HOME', link: '/', current: false },
   { name: 'ABOUT', link: '/about', current: false },
   { name: 'PROJECTS', link: '/projects', current: false },
-  { name: 'CONTACT ME', link: '/contact', current: false },
+  { name: 'CONTACT ME', link: '/contact-me', current: false },
 ];
 
 ///download resume
