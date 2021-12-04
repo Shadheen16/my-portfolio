@@ -1,7 +1,9 @@
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { ContactMe } from "./pages/ContactMe/ConatctMe";
+import MyProjects from "./pages/Home/components/MyProjects/MyProjects";
 import Home from "./pages/Home/Home";
+import ProjectDetail from "./pages/ProjectDetail/ProjectDetail";
 
 
 function App() {
@@ -11,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact-me" element={<ContactMe/>} />
+          <Route path="/project/:projectId" element={<ProjectDetail/>} />
         </Routes>
       </BrowserRouter>
     </div>

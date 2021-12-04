@@ -1,14 +1,15 @@
-import { Link, NavLink } from 'react-router-dom';
 import { Disclosure} from '@headlessui/react'
 import Logo from '../../../Shared/Logo/Logo'
 import { Fragment } from 'react';
 import { saveAs } from "file-saver";
 import { DownloadIcon } from '@heroicons/react/solid';
+import { NavHashLink } from 'react-router-hash-link';
+import "./NavBar.css"
 const navigation = [
-  { name: 'HOME', link: '/', current: false },
-  { name: 'ABOUT', link: '/about', current: false },
-  { name: 'PROJECTS', link: '/projects', current: false },
-  { name: 'CONTACT ME', link: '/contact-me', current: false },
+  { name: 'HOME', link: '/#', current: false },
+  { name: 'ABOUT', link: '/about#about', current: false },
+  { name: 'PROJECTS', link: '/#projects', current: false },
+  { name: 'CONTACT ME', link: '/contact-me#contact-me', current: false },
 ];
 
 ///download resume
@@ -25,7 +26,7 @@ export default function Navbar() {
 
 
   return (
-    <Disclosure as="nav" className="font-robo  fixed top-0 sm:w-[90%] lg:w-[80%] xl:w-[70%]  z-50 border-b border-clr-primary  rounded-sm text-gray-800
+    <Disclosure as="nav" className="font-robo w-full fixed top-0 sm:w-[90%] lg:w-[80%] xl:w-[70%]  z-50 border-b border-clr-primary  rounded-sm text-gray-800
     bg-clr-secondary sm:bg-transparent tracking-wider antialiased-subpixel transform transition-all duration-500 ease-in md:py-3">
       {({ open }) => (
         <>
@@ -52,31 +53,33 @@ export default function Navbar() {
                 <div className="hidden sm:inline-flex justify-items-end items-center">
                   <div className="flex space-x-4 md:space-x-8 lg:space-x-12 absolute right-[20%]">
                     {navigation.map((item) => (
-                      <NavLink
+                      <NavHashLink
                         key={item.name}
+                        smooth
                         to={item.link}
-                        activeClassName="active"
+                        activeClassName="selected"
                         className="text-[2vh] transform transition duration-300 ease-out nav-link"
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </NavLink>
+                      </NavHashLink>
                     ))}
                   </div>
-                  <button className="my-auto flex items-center absolute right-0  border-2 border-clr-accent bg-clr-primary py-2 px-3 hover:bg-clr-accent hover:text-clr-primary" onClick={saveFile}><span><DownloadIcon className="w-6 h-6 animate-"/></span ><small className="hidden md:inline-block">download resume</small></button>
+                  <button className="my-auto md:flex md:flex-col lg:flex-row items-center absolute right-0  border-2 border-clr-accent text-white hover:ring-2 hover:ring-clr-accent ring-offset-2 py-2 px-3 bg-clr-accent hover:text-clr-primary" onClick={saveFile}><span><DownloadIcon className="w-6 h-6 animate-"/></span ><small className="hidden md:inline-block">download resume</small></button>
                 </div>
             </div>
           </div>
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
-                <Link
+                <NavHashLink
                   key={item.name}
+                  smooth
                   to={item.link}
                   className="text-gray-800 hover:translate-x-2 transition-all duration-300 ease-out hover:text-gray-700 block px-3 py-2 rounded-md text-base font-medium"
                 >
                   {item.name}
-                </Link>
+                </NavHashLink>
               ))}
             </div>
             <button className="ml-5 mt-5 mb-10 border-2 border-clr-accent bg-clr-primary py-2 px-3 hover:bg-clr-accent hover:text-clr-primary" onClick={saveFile}><span></span> download resume</button>
