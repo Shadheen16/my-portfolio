@@ -9,7 +9,7 @@ const navigation = [
   { name: 'HOME', link: '/#', current: false },
   { name: 'ABOUT', link: '/about#about', current: false },
   { name: 'PROJECTS', link: '/#projects', current: false },
-  { name: 'CONTACT ME', link: '/contact-me#contact-me', current: false },
+  { name: 'CONTACT ME', link: '/#contact-me', current: false },
 ];
 
 ///download resume
@@ -65,7 +65,7 @@ export default function Navbar() {
                       </NavHashLink>
                     ))}
                   </div>
-                  <button className="my-auto md:flex md:flex-col lg:flex-row items-center absolute right-0  border-2 border-clr-accent text-white hover:ring-2 hover:ring-clr-accent ring-offset-2 py-2 px-3 bg-clr-accent hover:text-clr-primary" onClick={saveFile}><span><DownloadIcon className="w-6 h-6 animate-"/></span ><small className="hidden md:inline-block">download resume</small></button>
+                  <button className="my-auto md:flex md:flex-col lg:flex-row items-center absolute right-0  border-2 border-clr-accent text-white hover:ring-2 hover:ring-clr-accent ring-offset-2 py-2 px-3 bg-clr-accent hover:text-clr-primary" onClick={saveFile}><span><DownloadIcon className="w-6 h-6 animate-bounce mr-2"/></span ><small className="hidden md:inline-block">download resume</small></button>
                 </div>
             </div>
           </div>

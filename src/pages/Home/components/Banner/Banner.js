@@ -11,9 +11,9 @@ const Banner = () => {
         setWritter(true);
     }, 4075);
     return (
-        <div className="min-h-[55vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-[100vh] grid grid-cols-1 md:grid-cols-5 pt-20 w-full mx-auto px-5 sm:px-0">
-            <div className="h-ful col-span-3 flex flex-col justify-center items-center md:items-start ">
-                <h4 className="text-[4vh] sm:text-[6vh] lg:text-[8vh] text-clr-dark font-extrabold">
+        <div className="min-h-[100vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-[100vh] grid grid-cols-1 md:grid-cols-2 pt-20 w-full mx-auto px-5 sm:px-0">
+            <div className="h-ful flex flex-col justify-center items-center md:items-start ">
+                <h4 className="text-[7vw] sm:text-[3vw] text-clr-dark font-extrabold">
                     <BannerText /><div
                         data-aos="fade-right"
                         data-aos-offset="200"
@@ -22,9 +22,9 @@ const Banner = () => {
                         data-aos-easing="ease-in-out"
                         data-aos-mirror="true"
                         data-aos-once="false"
-                        className="uppercase text-clr-accent">my name is Arman</div>
+                        className="uppercase text-clr-accent"><h1 className="pt-7">my name is Arman</h1></div>
                 </h4>
-                <div className="font-mono tracking-widest text-xl text-clr-dark"
+                <div className="font-mono tracking-widest text-sm sm:text-xl text-clr-dark"
                 >
                     <span></span><span className="inline-block uppercase">{
                         writter &&
@@ -41,7 +41,7 @@ const Banner = () => {
                 </div>
 
             </div>
-            <div className="flex justify-right items-center col-span-2 max-w-[100%]">
+            <div className="flex  items-center sm:max-w-[100%] sm:justify-right">
                 <BannerSvg />
             </div>
         </div>
